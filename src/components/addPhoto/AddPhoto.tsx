@@ -1,13 +1,13 @@
 "use client"
 
 import {supabase} from "@/lib/supabase/client";
-import {useState} from "react";
+import {ChangeEvent, useState} from "react";
 import {useRouter} from "next/navigation";
 
-export const  AddPhoto = ({category}) => {
+export const  AddPhoto = ({category}:{category:string}) => {
     const router = useRouter()
     const [uploading, setUploading] = useState(false)
-    const addImage = async (event) => {
+    const addImage = async (event: ChangeEvent<HTMLInputElement>) => {
         try {
             setUploading(true)
             const file = event?.target.files?.[0]
